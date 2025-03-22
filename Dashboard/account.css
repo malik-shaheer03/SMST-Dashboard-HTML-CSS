@@ -1,0 +1,1688 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+body {
+    background: #F5F5F5;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    max-width: 1200px;
+    height: 60px;
+    background: linear-gradient(to right, #f7f2f2, #eee9e9);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin: 10px auto;
+    /* Add these properties for smooth transition */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Class to hide navbar when scrolling down */
+.navbar--hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Class to show navbar when scrolling up */
+.navbar--visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 20px;
+    width: auto;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-bottom: 2px solid #e68c8c;
+    padding: 0 5px 0 5px;
+    max-width: 250px;
+    width: 100%;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    flex: 1;
+    padding-left: 5px;
+    padding-bottom: 5px; /* Ensure no bottom padding on the input */
+    padding-top: 5px;
+}
+
+.search-icon {
+    width: 16px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 14px;
+    color: #333;
+}
+
+.notification {
+    width: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Notification Popup */
+.notification-popup {
+    position: absolute;
+    top: 75px;
+    right: 157px;
+    width: 320px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    overflow: hidden;
+    display: none;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-header span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.mark-all-read {
+    color: #ff3b30;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: flex-start;
+}
+
+.notification-icon {
+    margin-top: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.notification-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.notification-icon.assignment {
+    background-color: #f0f0f0;
+}
+
+.notification-icon.test {
+    background-color: #e0e8ff;
+}
+
+.notification-icon.regularization {
+    background-color: #e6f7e9;
+}
+
+.notification-icon.user {
+    background-color: #fff0e0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content p {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.notification-time {
+    font-size: 11px;
+    color: #888;
+}
+
+/* For scrollbar customization */
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+/* Profile Icon */
+.profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Profile Popup - FIXED */
+.profile-popup {
+    position: absolute;
+    top: 75px;
+    right: 157px;
+    width: 200px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    overflow: hidden;
+    display: none;
+}
+
+.profile-popup .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-popup .profile-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.profile-popup .profile-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.profile-popup .profile-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-popup .profile-id {
+    font-size: 12px;
+    color: #888;
+}
+
+.profile-menu {
+    padding: 5px 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #f5f5f5;
+}
+
+.menu-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.menu-item span {
+    font-size: 14px;
+    color: #333;
+}
+
+.logout span {
+    color: #ff3b30;
+}
+
+/* Add a pseudo-element for the green dot indicator next to the profile icon */
+.profile::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #4CD964;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    border: 2px solid white;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for blur effect */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px); /* This creates the blur effect */
+}
+
+/* Modal Container */
+.modal-container {
+    background-color: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ff3b30;
+    padding-bottom: 5px;
+}
+
+.password-input-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 0;
+    color: #888;
+}
+
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+/* Change Password Button */
+.change-password-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.change-password-btn:hover {
+    background-color: #e6352b;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tab Bar */
+.tab-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    background: #f8f6f5; /* Light background */
+}
+
+/* Tab Buttons */
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: #6b5b57;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Active Tab */
+.tab.active {
+    background: #120b0a; /* Dark background */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Hover Effect */
+.tab:hover {
+    background: #ddd;
+}
+
+/* Tab Icons */
+.tab img {
+    width: 18px;
+    height: auto;
+    opacity: 0.8;
+}
+
+/* Active Tab Icon Fix */
+.tab.active img {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+}
+
+/* Logout confirmation modal */
+.logout-confirm {
+    padding: 20px;
+    text-align: center;
+    max-width: 350px;
+}
+
+.logout-body h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.logout-body p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-no {
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-no:hover {
+    background-color: #e9e9e9;
+}
+
+.btn-yes {
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-yes:hover {
+    background-color: #e6352b;
+}
+
+/* Account Page Styles */
+.account-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Profile Sidebar */
+.profile-sidebar {
+    width: 260px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image-container {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.profile-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.student-id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.rating-star {
+    width: 14px;
+    height: 14px;
+}
+
+.contact-info {
+    width: 100%;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.info-item {
+    margin-bottom: 12px;
+}
+
+.info-label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 3px;
+}
+
+.info-value {
+    font-size: 14px;
+    color: #333;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 8px 15px;
+    background: transparent;
+    border: none;
+    color: #ff3b30;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    border-top: 1px solid #eee;
+    width: 100%;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.logout-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Account Details */
+.account-details {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.account-details h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    position: relative;
+}
+
+.full-width {
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #ff3b30;
+}
+
+.select-container {
+    position: relative;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #888;
+    pointer-events: none;
+}
+
+select {
+    appearance: none;
+    padding-right: 25px;
+}
+
+.phone-input, .email-input, .date-input {
+    position: relative;
+}
+
+.verified-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00c853;
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+}
+
+.update-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.update-profile-btn {
+    background: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.update-profile-btn:hover {
+    background: #e82e24;
+}
+
+/* Settings Section */
+.settings-section {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.setting-info h3 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.setting-info p {
+    font-size: 13px;
+    color: #888;
+}
+
+.arrow-icon {
+    color: #888;
+    font-size: 18px;
+}
+
+.setting-action {
+    cursor: pointer; /* Makes the cursor a hand */
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: #00c853;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+}
+
+/* Enrolled Course - FIXED */
+.enrolled-course {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FDF7E9 0%, #FFF7D9 100%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.enrolled-course-card {
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.card-header {
+    padding: 12px 16px 8px;
+}
+
+.card-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b6b6b;
+}
+
+.card-content {
+    padding: 0 16px 16px;
+    display: flex;
+    gap: 12px;
+}
+
+.course-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Fixed Course Image */
+.course-image {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    margin: 0; /* Reset margin to prevent displacement */
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Create circular progress indicator */
+.course-image::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    top: -4px;
+    left: -4px;
+    border-radius: 50%;
+    background: conic-gradient(#1eb980 0% 75%, #e0f5eb 75% 100%);
+    z-index: -1;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.course-meta {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 14px 0;
+}
+
+.mentors-section {
+    margin-top: 8px;
+}
+
+.mentors-label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.mentors-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mentor-avatars {
+    display: flex;
+    position: relative;
+}
+
+.mentor-avatar {
+    width: 54px;
+    height: 24px;
+    border: 2px solid #faf7f0;
+
+    object-fit: cover;
+}
+
+.mentors-text {
+    font-size: 12px;
+    color: #6b6b6b;
+}
+
+/* Join Community */
+.join-community {
+    background: #f0f8f4;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.join-community h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.join-community p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.join-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.join-button img {
+    width: 38px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.community-btn {
+    background: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* RESPONSIVE STYLES */
+
+/* Large screens */
+@media (max-width: 992px) {
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium screens / Tablets */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row;
+        height: 60px;
+        padding: 0 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-left, .nav-right {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Search */
+    /* Search - modified */
+    .search-container {
+        max-width: 40px;
+        border-bottom: none;
+        transition: max-width 0.3s ease;
+    }
+    
+    .search-container input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        transition: opacity 0.3s ease, width 0.3s ease;
+        font-size: 10px;
+    }
+    
+    .search-container.active {
+        max-width: 200px;
+        border-bottom: 1px solid #e68c8c;
+    }
+    
+    .search-container.active input {
+        display: block;
+        opacity: 1;
+        width: 160px;
+    }
+    
+    .search-icon {
+        display: block;
+        margin: 0;
+        cursor: pointer;
+    }
+    
+    /* Hide elements when search is active */
+    .search-container.active ~ .time-container,
+    .search-container.active ~ .notification,
+    .search-container.active ~ .profile {
+        display: none;
+    }
+    
+    /* If the elements are in a parent container */
+    .nav-right.search-active .time-container,
+    .nav-right.search-active .notification,
+    .nav-right.search-active .profile {
+        display: none;
+    }
+    /* Time */
+    .time-container {
+        display: flex;
+        font-size: 12px;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+    
+    /* Dashboard layout */
+    .dashboard-container {
+        margin-top: 80px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    /* Vertical Tab Bar */
+    .tab-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 15px;
+        width: 180px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        height: fit-content;
+        border-bottom: none;
+        border-right: 2px solid #ddd;
+    }
+    
+    .tab {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 12px 15px;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        width: calc(100% - 195px);
+    }
+    
+    .course-grid, .sidebar {
+        width: 100%;
+    }
+    
+    /* Popups */
+    .notification-popup,
+    .profile-popup {
+        top: 65px;
+        right: 20px;
+        width: 90%;
+        max-width: 320px;
+    }
+    
+    /* Profile Popup - Mobile Responsive */
+    .profile-popup {
+        width: 200px;
+    }
+    
+    .profile-popup .profile-image {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .profile-popup .profile-name {
+        font-size: 13px;
+    }
+    
+    .profile-popup .profile-id {
+        font-size: 11px;
+    }
+}
+
+/* Small screens / Mobile */
+/* Small screens / Mobile */
+@media (max-width: 576px) {
+    /* Course grid */
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Dashboard layout for small screens */
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    /* Tab bar becomes top-positioned for small screens */
+    .tab-bar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+    }
+    
+    .main-content {
+        width: 100%;
+    }
+    
+    /* Button */
+    .continue {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Modal */
+    .modal-container {
+        width: 95%;
+    }
+    
+    /* Card adjustments */
+    .course-card {
+        padding: 10px;
+    }
+    
+    .course-card img.thumbnail {
+        height: 120px;
+    }
+    
+    /* Community section */
+    .join-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+    }
+    
+    .join-button img {
+        position: static;
+        margin: 0;
+        width: 38px;
+        height: auto;
+        order: 2;
+    }
+    
+    .community-btn {
+        order: 1;
+        margin-right: auto;
+    }
+    
+    /* Make sure the parent container has proper spacing */
+    .join-community {
+        text-align: left;
+        padding: 15px;
+    }
+    
+    /* Account page responsive */
+    .account-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Notification popup adjustments */
+    .notification-popup {
+        right: 10px;
+        width: calc(100% - 20px);
+        max-width: none;
+    }
+    
+    /* Profile popup adjustments */
+    .profile-popup {
+        right: 10px;
+    }
+    
+    /* Enrolled course adjustments */
+    /* Other mobile styles remain the same */
+    
+    /* Updated enrolled course styling for mobile */
+    .enrolled-course {
+        padding: 15px;
+        background: #FDF7E9;
+    }
+    
+    .enrolled-course-card {
+        box-shadow: none;
+    }
+    
+    .card-header {
+        padding: 0 0 8px 0;
+    }
+    
+    .card-content {
+        padding: 0;
+    }
+    
+    .course-flex-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .course-image {
+        margin: 0;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .course-info {
+        text-align: left;
+        padding-top: 0;
+    }
+    
+    .course-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 2px;
+    }
+    
+    .course-meta {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .mentors-section {
+        margin-top: 5px;
+    }
+    
+    .mentors-label {
+        display: inline;
+        margin-right: 5px;
+    }
+    
+    .mentors-list {
+        display: inline-flex;
+        justify-content: flex-start;
+    }
+    
+    .mentor-avatars {
+        margin-right: 5px;
+    }
+    
+    .mentor-avatar {
+        width: 48px;
+        height: 20px;
+        border: 1px solid #fff;
+        margin-right: -8px;
+    }
+    
+    .mentors-text {
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+    .navbar {
+        padding: 0 10px;
+    }
+    
+    .nav-right {
+        gap: 10px;
+    }
+    
+    .search-container {
+        max-width: 30px;
+    }
+    
+    .profile {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .notification {
+        width: 18px;
+    }
+    
+    .tab {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .tab img {
+        width: 16px;
+    }
+    
+    .notification-item {
+        padding: 10px;
+    }
+    
+    .notification-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .notification-icon img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .notification-content p {
+        font-size: 12px;
+    }
+    
+    .notification-time {
+        font-size: 10px;
+    }
+    
+    /* Modals */
+    .modal-header h2 {
+        font-size: 18px;
+    }
+    
+    .change-password-btn,
+    .btn-yes,
+    .btn-no {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    /* Account page */
+    .account-details h2 {
+        font-size: 16px;
+    }
+    
+    .setting-info h3 {
+        font-size: 14px;
+    }
+    
+    .setting-info p {
+        font-size: 12px;
+    }
+    
+    .profile-info h2 {
+        font-size: 16px;
+    }
+    
+    .student-id {
+        font-size: 12px;
+    }
+    
+    .info-label {
+        font-size: 11px;
+    }
+    
+    .info-value {
+        font-size: 13px;
+    }
+}
+
+/* Handle landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .dashboard-container {
+        margin-top: 70px;
+    }
+    
+    .tab-bar {
+        padding: 8px;
+    }
+    
+    .tab {
+        padding: 8px 12px;
+    }
+    
+    .modal-overlay {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .modal-container {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .profile-sidebar {
+        padding: 15px;
+    }
+    
+    .profile-image-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .account-details {
+        padding: 15px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .tab-bar,
+    .join-community,
+    .update-btn-container,
+    .logout-btn,
+    .settings-section {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        font-size: 12pt;
+    }
+    
+    .dashboard-container {
+        margin-top: 0;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .account-container {
+        page-break-inside: avoid;
+    }
+    
+    .account-details,
+    .profile-sidebar {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    input, select {
+        border: none;
+        background: transparent;
+    }
+    
+    .course-image::before {
+        display: none;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #f0f0f0;
+    }
+    
+    .navbar {
+        background: linear-gradient(to right, #1e1e1e, #2a2a2a);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .search-container {
+        border-bottom-color: #e68c8c;
+    }
+    
+    .search-container input {
+        color: #f0f0f0;
+    }
+    
+    .time-container {
+        color: #d0d0d0;
+    }
+    
+    .notification-popup,
+    .profile-popup,
+    .modal-container,
+    .profile-sidebar,
+    .account-details,
+    .enrolled-course,
+    .join-community {
+        background-color: #1e1e1e;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .notification-header,
+    .menu-item,
+    .setting-item {
+        border-bottom-color: #333;
+    }
+    
+    .notification-item {
+        border-bottom-color: #333;
+    }
+    
+    .menu-item:hover {
+        background-color: #2a2a2a;
+    }
+    
+    .menu-item span,
+    .profile-popup .profile-name,
+    .modal-header h2,
+    .account-details h2,
+    .profile-info h2,
+    .setting-info h3 {
+        color: #f0f0f0;
+    }
+    
+    .profile-popup .profile-id,
+    .notification-time,
+    .info-label,
+    .setting-info p {
+        color: #aaa;
+    }
+    
+    .btn-no {
+        background-color: #333;
+        color: #f0f0f0;
+    }
+    
+    input, select {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: #f0f0f0;
+    }
+    
+    input:focus, select:focus {
+        border-color: #ff3b30;
+    }
+    
+    .toggle-slider {
+        background-color: #444;
+    }
+    
+    .tab {
+        background: #2a2a2a;
+        color: #d0d0d0;
+    }
+    
+    .tab.active {
+        background: #ff3b30;
+    }
+    
+    .tab:hover {
+        background: #444;
+    }
+    
+    .enrolled-course {
+        background: linear-gradient(135deg, #232323 0%, #1a1a1a 100%);
+    }
+    
+    .course-title {
+        color: #f0f0f0;
+    }
+    
+    .course-meta,
+    .mentors-text,
+    .card-label {
+        color: #aaa;
+    }
+    
+    .mentor-avatar {
+        border-color: #1a1a1a;
+    }
+    
+    .join-community {
+        background: #1a2a20;
+    }
+    
+    .join-community h4 {
+        color: #f0f0f0;
+    }
+    
+    .join-community p {
+        color: #bbb;
+    }
+}

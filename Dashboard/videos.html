@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos</title>
+    <link rel="stylesheet" href="videos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="dashboard.html">
+          <img src="assets/logo.png" alt="Logo" class="logo" />
+        </a>
+        <div class="search-container">
+          <input type="text" placeholder="Search for videos, skins..." />
+          <img src="assets/search-icon.png" alt="Search" class="search-icon" />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="time-container">
+          <span class="time">10:27 AM</span>
+          <span class="date">Wed, 24 Oct</span>
+        </div>
+        <img
+          src="assets/notification-icon.png"
+          alt="Notification"
+          class="notification"
+        />
+        <img src="assets/profile.jpg" alt="Profile" class="profile" />
+      </div>
+    </nav>
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notificationPopup">
+      <div class="notification-header">
+        <span>Notifications (3)</span>
+        <span class="mark-all-read">Mark All As Read</span>
+      </div>
+      <div class="notification-list">
+        <div class="notification-item">
+          <div class="notification-icon assignment">
+            <img src="assets/not1.png" alt="Assignment" />
+          </div>
+          <div class="notification-content">
+            <p>
+              Assignment Wireframe Design has been published with due date
+              31/10/2021
+            </p>
+            <span class="notification-time">13 mins ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon test">
+            <img src="assets/not2.png" alt="Test" />
+          </div>
+          <div class="notification-content">
+            <p>Test score for Journey Mapping has been released.</p>
+            <span class="notification-time">41 mins ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon regularization">
+            <img src="assets/not3.png" alt="Approved" />
+          </div>
+          <div class="notification-content">
+            <p>Regularization request for 22/10/2024 has been approved.</p>
+            <span class="notification-time">2 hrs ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon user">
+            <img src="assets/not4.png" alt="User" />
+          </div>
+          <div class="notification-content">
+            <p>
+              Assignment User Persona has been published with due date
+              28/10/2021
+            </p>
+            <span class="notification-time">1 day ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon test">
+            <img src="assets/not5.png" alt="Test" />
+          </div>
+          <div class="notification-content">
+            <p>Test score for Journey Mapping has been released.</p>
+            <span class="notification-time">41 mins ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, right after the notification popup div -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="profile-header">
+        <img src="assets/profile.jpg" alt="Profile" class="profile-image" />
+        <div class="profile-info">
+          <span class="profile-name">Binod Rangeela</span>
+          <span class="profile-id">SMST1124576</span>
+        </div>
+      </div>
+      <div class="profile-menu">
+        <div class="menu-item">
+          <img
+            src="assets/profile-circle.png"
+            alt="Profile Icon"
+            class="menu-icon"
+          />
+          <span>My Profile</span>
+        </div>
+        <div class="menu-item">
+          <img
+            src="assets/setting-icon.png"
+            alt="Settings Icon"
+            class="menu-icon"
+          />
+          <span>Settings</span>
+        </div>
+        <div class="menu-item logout">
+          <img src="assets/logout.png" alt="Logout Icon" class="menu-icon" />
+          <span>Logout</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, after the profile popup div -->
+    <div class="modal-overlay" id="passwordModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Change Password</h2>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="currentPassword"
+                placeholder="Current Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="newPassword"
+                placeholder="New Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm New Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm New Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <button class="change-password-btn">Change Password</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, after the password modal div -->
+    <div class="modal-overlay" id="logoutModal">
+      <div class="modal-container logout-confirm">
+        <div class="modal-body logout-body">
+          <h2>Confirm Logout?</h2>
+          <p>Are you sure, you want to logout?</p>
+          <div class="logout-buttons">
+            <button class="btn-no">No</button>
+            <button class="btn-yes">Yes, Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Tab Bar -->
+      <div class="tab-bar">
+        <a href="videos.html" class="tab active">
+          <img src="assets/video-play.png" alt="Videos" />
+          Videos
+        </a>
+        <a href="resources.html" class="tab">
+          <img src="assets/star.png" alt="Resources" />
+          Resources
+        </a>
+        <a href="account.html" class="tab">
+          <img src="assets/profile-circle.png" alt="Account" />
+          Account
+        </a>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="main-container">
+        <!-- Course Sidebar -->
+        <div class="course-sidebar">
+          <div class="course-header">
+            <span class="back-button">←</span>
+            <img
+              src="assets/progress.png"
+              alt="Music Theory"
+              class="course-image"
+            />
+            <div>
+              <div class="course-title">Getting Started With Music Theory</div>
+              <div class="course-subtitle">4 modules · 2 months · English</div>
+            </div>
+          </div>
+
+          <div class="module-section">
+            <div class="module-header">
+              <span>Basic Material, Overview, Tonality, Notation</span>
+              <span class="chevron">✓</span>
+            </div>
+            <ul class="lesson-list">
+              <li class="lesson-item">
+                <div class="status-icon completed">
+                  <span class="check-icon">✓</span>
+                </div>
+                <div class="lesson-info">
+                  <div class="lesson-title">9 Videos</div>
+                </div>
+                <div class="lesson-duration">2 h 37 mins</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="module-section">
+            <div class="module-header">
+              <span>Scales, Keys and Intervals</span>
+              <span class="chevron">✓</span>
+            </div>
+            <ul class="lesson-list">
+              <li class="lesson-item">
+                <div class="status-icon completed">
+                  <span class="check-icon">✓</span>
+                </div>
+                <div class="lesson-info">
+                  <div class="lesson-title">12 Videos</div>
+                </div>
+                <div class="lesson-duration">3 h 12 mins</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="module-section">
+            <div class="module-header collapsed">
+              <span>Rhythm and Meter</span>
+              <span class="chevron">›</span>
+            </div>
+            <ul class="lesson-list">
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">6 Videos</div>
+                </div>
+                <div class="lesson-duration">11.2 mins</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="module-section">
+            <div class="module-header">
+              <span>Accents and Meter Beats</span>
+              <span class="chevron">✓</span>
+            </div>
+            <ul class="lesson-list">
+              <li class="lesson-item current-lesson">
+                <div class="status-icon completed">
+                  <span class="check-icon">✓</span>
+                </div>
+                <div class="lesson-info">
+                  <div class="lesson-title">Accents and Meter Beats</div>
+                </div>
+                <div class="lesson-duration">12:31</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon completed">
+                  <span class="check-icon">✓</span>
+                </div>
+                <div class="lesson-info">
+                  <div class="lesson-title">
+                    Rhythm and Meter I: Subdivisions of the Beat
+                  </div>
+                </div>
+                <div class="lesson-duration">8:10</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon completed">
+                  <span class="check-icon">✓</span>
+                </div>
+                <div class="lesson-info">
+                  <div class="lesson-title">
+                    Meter III: Simple and Compound Meters
+                  </div>
+                </div>
+                <div class="lesson-duration">14:42</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">Metric Notation in Practice</div>
+                </div>
+                <div class="lesson-duration">7:13</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">Metric Notation: Tuplets</div>
+                </div>
+                <div class="lesson-duration">6:53</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">
+                    More About Meter and Meter Signatures
+                  </div>
+                </div>
+                <div class="lesson-duration">10:00</div>
+              </li>
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">Syncopation</div>
+                </div>
+                <div class="lesson-duration">4:12</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="module-section">
+            <div class="module-header collapsed">
+              <span>Chords, Triads and Harmony</span>
+              <span class="chevron">›</span>
+            </div>
+            <ul class="lesson-list">
+              <li class="lesson-item">
+                <div class="status-icon incomplete"></div>
+                <div class="lesson-info">
+                  <div class="lesson-title">4 Videos</div>
+                </div>
+                <div class="lesson-duration">27 mins</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Course Content -->
+        <div class="course-content">
+          <h3>Metric Notation in Practice</h3>
+          <img src="assets/course-video-image.png" alt="Course Image" />
+          <div class="video-navigation">
+            <button class="prev-btn">Previous</button>
+            <button class="next-btn">Next</button>
+          </div>
+
+          <!-- Discussion Section -->
+          <div class="discussion-section">
+            <!-- Discussion Input Field -->
+            <div class="discussion-input-container">
+              <h4>Discussion</h4>
+              <div class="write-comment">
+                <div class="user-avatar">
+                  <img src="assets/avatars/user.jpg" alt="User" />
+                </div>
+                <div class="comment-input-wrapper">
+                  <input
+                    type="text"
+                    class="comment-input"
+                    placeholder="Write here..."
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment Thread -->
+            <div class="comment-thread">
+              <!-- First Comment -->
+              <div class="comment">
+                <div class="user-avatar">
+                  <img
+                    src="assets/avatars/maharaja.jpg"
+                    alt="Maharaja Charan Singh"
+                  />
+                </div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="user-name">Maharaja Charan Singh</span>
+                    <span class="timestamp">1d ago</span>
+                  </div>
+                  <p>Nice, very nice. 👍</p>
+                  <div class="comment-actions">
+                    <button class="reply-btn">Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nested Replies -->
+              <div class="nested-replies">
+                <button class="show-replies">Show 2 Replies</button>
+              </div>
+
+              <!-- Second Comment -->
+              <div class="comment">
+                <div class="user-avatar">
+                  <img src="assets/avatars/pramod.jpg" alt="Pramod Maharaj" />
+                </div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="user-name">Pramod Maharaj</span>
+                    <span class="timestamp">2d ago</span>
+                  </div>
+                  <p>
+                    I am able to write melodies on the treble, bass, and grand
+                    staves using correct meter signatures, note values, rhythmic
+                    grouping, stem direction and beaming, and key signatures and
+                    accidentals.
+                  </p>
+                  <div class="comment-actions">
+                    <button class="reply-btn">Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Third Comment -->
+              <div class="comment">
+                <div class="user-avatar">
+                  <img src="assets/avatars/charan.jpg" alt="Charan Amrit" />
+                </div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="user-name">Charan Amrit</span>
+                    <span class="timestamp">3d ago</span>
+                  </div>
+                  <p>
+                    I am able to write melodies on the treble, bass, and grand
+                    staves using correct meter signatures, note values, rhythmic
+                    grouping.
+                  </p>
+                  <div class="comment-actions">
+                    <button class="reply-btn">Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nested Replies -->
+              <div class="nested-replies">
+                <div class="comment nested">
+                  <div class="user-avatar">
+                    <img
+                      src="assets/avatars/maharaja.jpg"
+                      alt="Maharaja Charan Singh"
+                    />
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="user-name">Maharaja Charan Singh</span>
+                      <span class="timestamp">2d ago</span>
+                    </div>
+                    <p>Nice, very nice.</p>
+                  </div>
+                </div>
+
+                <div class="comment nested">
+                  <div class="user-avatar">
+                    <img src="assets/avatars/pramod.jpg" alt="Pramod Maharaj" />
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="user-name">Pramod Maharaj</span>
+                      <span class="timestamp">2d ago</span>
+                    </div>
+                    <p>
+                      I am able to write melodies on the treble, bass, and grand
+                      staves using correct meter signatures, note values,
+                      rhythmic grouping, stem direction and beaming, and key
+                      signatures and accidentals.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="comment nested">
+                  <div class="user-avatar">
+                    <img
+                      src="assets/avatars/maharaja.jpg"
+                      alt="Maharaja Charan Singh"
+                    />
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="user-name">Maharaja Charan Singh</span>
+                      <span class="mentor-badge">Mentor</span>
+                      <span class="timestamp">2d ago</span>
+                    </div>
+                    <p>Nice, very nice.</p>
+                  </div>
+                </div>
+
+                <div class="comment nested">
+                  <div class="user-avatar">
+                    <img src="assets/avatars/charan.jpg" alt="Charan Amrit" />
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="user-name">Charan Amrit</span>
+                      <span class="timestamp">2d ago</span>
+                    </div>
+                    <p>Shut up everyone 😎</p>
+                  </div>
+                </div>
+
+                <button class="hide-replies">Hide Replies</button>
+              </div>
+
+              <!-- Fourth Comment -->
+              <div class="comment">
+                <div class="user-avatar">
+                  <img src="assets/avatars/pramod.jpg" alt="Pramod Maharaj" />
+                </div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="user-name">Pramod Maharaj</span>
+                    <span class="timestamp">4d ago</span>
+                  </div>
+                  <p>
+                    I am able to write melodies on the treble, bass, and grand
+                    staves using correct meter signatures, note values, rhythmic
+                    grouping, stem direction and beaming, and key signatures and
+                    accidentals.
+                  </p>
+                  <div class="comment-actions">
+                    <button class="reply-btn">Reply</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nested Replies -->
+              <div class="nested-replies">
+                <div class="comment nested">
+                  <div class="user-avatar">
+                    <img
+                      src="assets/avatars/maharaja.jpg"
+                      alt="Maharaja Charan Singh"
+                    />
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="user-name">Maharaja Charan Singh</span>
+                      <span class="timestamp">2d ago</span>
+                    </div>
+                    <p>Nice, very nice.</p>
+                  </div>
+                </div>
+                <div class="add-reply">
+                  <div class="user-avatar">
+                    <img src="assets/avatars/user.jpg" alt="User" />
+                  </div>
+                  <div class="reply-input-container">
+                    <input
+                      type="text"
+                      class="reply-input"
+                      placeholder="Add Reply..."
+                    />
+                    <button class="comment-btn">Comment</button>
+                  </div>
+                </div>
+                <button class="hide-replies">Hide Replies</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Enrolled Course Section -->
+        <div class="enrolled-course">
+          <div class="enrolled-course-card">
+            <div class="card-header">
+              <span class="card-label">Enrolled Course</span>
+            </div>
+            <div class="card-content">
+              <div class="course-image">
+                <img src="assets/progress.png" alt="Music Theory" />
+              </div>
+              <div class="course-info">
+                <h3 class="course-title">Getting Started With Music Theory</h3>
+                <p class="course-meta">4 modules · 2 months · English</p>
+
+                <div class="mentors-section">
+                  <span class="mentors-label">Mentors</span>
+                  <div class="mentors-list">
+                    <div class="mentor-avatars">
+                      <img
+                        src="assets/user1.jpg"
+                        alt="Sudhanshu Kumar"
+                        class="mentor-avatar"
+                      />>
+                    </div>
+                    <span class="mentors-text">Sudhanshu Kumar · 2 others</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join Community Section -->
+        <div class="join-community">
+          <h4>Join Whatsapp Community</h4>
+          <p>
+            Ask questions, clear doubts, and collaborate with other musicians
+          </p>
+          <div class="join-button">
+            <img src="assets/community.png" alt="WhatsApp" />
+            <a href="#" class="community-btn">Join Community</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript at the end of the body -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.querySelector('.back-button');
+        if (backButton) {
+            backButton.addEventListener('click', function() {
+                window.location.href = 'dashboard.html';
+            });
+        }
+
+        // Navbar scroll effect variables
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const scrollThreshold = 10; // Minimum scroll amount before showing/hiding
+        
+        // Navbar scroll fade effect
+        window.addEventListener('scroll', function() {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Check if we've scrolled more than the threshold
+            if (Math.abs(lastScrollTop - currentScrollTop) <= scrollThreshold) {
+                return;
+            }
+            
+            // Check scroll direction
+            if (currentScrollTop > lastScrollTop && currentScrollTop > navbar.offsetHeight) {
+                // Scrolling DOWN - hide navbar
+                navbar.classList.remove('navbar--visible');
+                navbar.classList.add('navbar--hidden');
+            } else {
+                // Scrolling UP - show navbar
+                navbar.classList.remove('navbar--hidden');
+                navbar.classList.add('navbar--visible');
+            }
+            
+            lastScrollTop = currentScrollTop;
+        });
+        
+        // Notification popup functionality
+        const notificationIcon = document.querySelector('.notification');
+        const notificationPopup = document.getElementById('notificationPopup');
+        
+        // Toggle notification popup when clicking the notification icon
+        notificationIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            notificationPopup.style.display = notificationPopup.style.display === 'block' ? 'none' : 'block';
+            
+            // Hide profile popup if open
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close notification popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!notificationPopup.contains(e.target) && e.target !== notificationIcon) {
+                notificationPopup.style.display = 'none';
+            }
+        });
+        
+        // Mark all as read functionality
+        const markAllReadBtn = document.querySelector('.mark-all-read');
+        markAllReadBtn.addEventListener('click', function() {
+            // Remove notification badge
+            document.querySelector('.notification').style.setProperty('--after-content', '""');
+            // You can add more code here to mark notifications as read
+        });
+        
+        // Profile popup functionality
+        const profileIcon = document.querySelector('.profile');
+        const profilePopup = document.getElementById('profilePopup');
+        
+        // Toggle profile popup when clicking the profile icon
+        profileIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profilePopup.style.display = profilePopup.style.display === 'block' ? 'none' : 'block';
+            
+            // Hide notification popup if open
+            notificationPopup.style.display = 'none';
+        });
+        
+        // Close profile popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!profilePopup.contains(e.target) && e.target !== profileIcon) {
+                profilePopup.style.display = 'none';
+            }
+        });
+        
+        // Password change modal functionality
+        const passwordModal = document.getElementById('passwordModal');
+        const closeModalBtn = passwordModal.querySelector('.close-btn');
+        
+        // Show modal when settings option is clicked
+        const settingsOption = document.querySelector('.menu-item:nth-child(2)');
+        settingsOption.addEventListener('click', function() {
+            passwordModal.style.display = 'flex';
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close modal when close button is clicked
+        closeModalBtn.addEventListener('click', function() {
+            passwordModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the modal content
+        passwordModal.addEventListener('click', function(e) {
+            if (e.target === passwordModal) {
+                passwordModal.style.display = 'none';
+            }
+        });
+        
+        // Toggle password visibility
+        const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+        togglePasswordBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                } else {
+                    input.type = 'password';
+                }
+            });
+        });
+        
+        // Change Password button functionality
+        const changePasswordBtn = document.querySelector('.change-password-btn');
+        changePasswordBtn.addEventListener('click', function() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Basic validation
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match');
+                return;
+            }
+            
+            // Here you would normally send this data to your server
+            console.log('Password change requested');
+            
+            // Close the modal after submission
+            passwordModal.style.display = 'none';
+            
+            // Reset form
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        });
+        
+        // Logout confirmation modal functionality
+        const logoutModal = document.getElementById('logoutModal');
+        const btnNo = logoutModal.querySelector('.btn-no');
+        const btnYes = logoutModal.querySelector('.btn-yes');
+        
+        // Show logout confirmation when logout is clicked
+        const logoutOption = document.querySelector('.menu-item.logout');
+        logoutOption.addEventListener('click', function() {
+            logoutModal.style.display = 'flex';
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close modal when "No" is clicked
+        btnNo.addEventListener('click', function() {
+            logoutModal.style.display = 'none';
+        });
+        
+        // Handle logout when "Yes, Logout" is clicked
+        btnYes.addEventListener('click', function() {
+            // Here you would normally handle the logout process
+            console.log('Logging out...');
+            // Redirect to logout page or clear session
+            // window.location.href = 'logout.php'; // Example redirect
+            
+            // Close the modal
+            logoutModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        logoutModal.addEventListener('click', function(e) {
+            if (e.target === logoutModal) {
+                logoutModal.style.display = 'none';
+            }
+        });
+        
+        // Add functionality for profile menu items
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Handle menu item clicks
+                const itemText = this.querySelector('span').textContent;
+                
+                if (itemText === 'My Profile') {
+                    console.log('Opening profile...');
+                    // Add profile navigation code here
+                    profilePopup.style.display = 'none';
+                }
+                // Other menu items are handled by specific event listeners above
+            });
+        });
+
+        /* JavaScript to add to make the course sidebar expandable on mobile */
+        const courseHeader = document.querySelector('.course-header');
+        const courseSidebar = document.querySelector('.course-sidebar');
+        
+        if (courseHeader && courseSidebar) {
+            courseHeader.addEventListener('click', function() {
+                courseSidebar.classList.toggle('expanded');
+            });
+        }
+
+                        //Hide or Show Search icon when clicked on mobile view
+                        const searchIcon = document.querySelector('.search-icon');
+                        const searchContainer = document.querySelector('.search-container');
+                        const searchInput = document.querySelector('.search-container input');
+                        const navRight = document.querySelector('.nav-right');
+                        
+                        // Toggle search field when icon is clicked
+                        searchIcon.addEventListener('click', function(e) {
+                            e.stopPropagation(); // Prevent click from propagating
+                            searchContainer.classList.toggle('active');
+                            
+                            // Toggle class on nav-right to hide other elements
+                            if (navRight) {
+                                navRight.classList.toggle('search-active');
+                            }
+                            
+                            if (searchContainer.classList.contains('active')) {
+                                searchInput.focus(); // Automatically focus the input when opened
+                            }
+                        });
+                        
+                        // Close search when clicking outside
+                        document.addEventListener('click', function(e) {
+                            if (!searchContainer.contains(e.target) && searchContainer.classList.contains('active')) {
+                                searchContainer.classList.remove('active');
+                                if (navRight) {
+                                    navRight.classList.remove('search-active');
+                                }
+                            }
+                        });
+                        
+                        // Prevent search from closing when clicking on the input
+                        searchInput.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                        
+                        // Close search on ESC key
+                        document.addEventListener('keydown', function(e) {
+                            if (e.key === 'Escape' && searchContainer.classList.contains('active')) {
+                                searchContainer.classList.remove('active');
+                                if (navRight) {
+                                    navRight.classList.remove('search-active');
+                                }
+                            }
+                        });
+        
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="dashboard.html">
+          <img src="assets/logo.png" alt="Logo" class="logo" />
+        </a>
+        <div class="search-container">
+          <input type="text" placeholder="Search for videos, skins..." />
+          <img src="assets/search-icon.png" alt="Search" class="search-icon" />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="time-container">
+          <span class="time">10:27 AM</span>
+          <span class="date">Wed, 24 Oct</span>
+        </div>
+        <img
+          src="assets/notification-icon.png"
+          alt="Notification"
+          class="notification"
+        />
+        <img src="assets/profile.jpg" alt="Profile" class="profile" />
+      </div>
+    </nav>
+
+    <!-- Notification Popup -->
+    <div class="notification-popup" id="notificationPopup">
+      <div class="notification-header">
+        <span>Notifications (3)</span>
+        <span class="mark-all-read">Mark All As Read</span>
+      </div>
+      <div class="notification-list">
+        <div class="notification-item">
+          <div class="notification-icon assignment">
+            <img src="assets/not1.png" alt="Assignment" />
+          </div>
+          <div class="notification-content">
+            <p>
+              Assignment Wireframe Design has been published with due date
+              31/10/2021
+            </p>
+            <span class="notification-time">13 mins ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon test">
+            <img src="assets/not2.png" alt="Test" />
+          </div>
+          <div class="notification-content">
+            <p>Test score for Journey Mapping has been released.</p>
+            <span class="notification-time">41 mins ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon regularization">
+            <img src="assets/not3.png" alt="Approved" />
+          </div>
+          <div class="notification-content">
+            <p>Regularization request for 22/10/2024 has been approved.</p>
+            <span class="notification-time">2 hrs ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon user">
+            <img src="assets/not4.png" alt="User" />
+          </div>
+          <div class="notification-content">
+            <p>
+              Assignment User Persona has been published with due date
+              28/10/2021
+            </p>
+            <span class="notification-time">1 day ago</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon test">
+            <img src="assets/not5.png" alt="Test" />
+          </div>
+          <div class="notification-content">
+            <p>Test score for Journey Mapping has been released.</p>
+            <span class="notification-time">41 mins ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, right after the notification popup div -->
+    <div class="profile-popup" id="profilePopup">
+      <div class="profile-header">
+        <img src="assets/profile.jpg" alt="Profile" class="profile-image" />
+        <div class="profile-info">
+          <span class="profile-name">Binod Rangeela</span>
+          <span class="profile-id">SMST1124576</span>
+        </div>
+      </div>
+      <div class="profile-menu">
+        <div class="menu-item">
+          <img
+            src="assets/profile-circle.png"
+            alt="Profile Icon"
+            class="menu-icon"
+          />
+          <span>My Profile</span>
+        </div>
+        <div class="menu-item">
+          <img
+            src="assets/setting-icon.png"
+            alt="Settings Icon"
+            class="menu-icon"
+          />
+          <span>Settings</span>
+        </div>
+        <div class="menu-item logout">
+          <img src="assets/logout.png" alt="Logout Icon" class="menu-icon" />
+          <span>Logout</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, after the profile popup div -->
+    <div class="modal-overlay" id="passwordModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Change Password</h2>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="currentPassword"
+                placeholder="Current Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="newPassword"
+                placeholder="New Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm New Password</label>
+            <div class="password-input-container">
+              <div class="lock-icon">
+                <img src="assets/lock-icon.png" alt="Lock" class="lock" />
+              </div>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm New Password"
+              />
+              <button class="toggle-password">
+                <img
+                  src="assets/eye-icon.png"
+                  alt="Toggle visibility"
+                  class="eye-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <button class="change-password-btn">Change Password</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add this to your HTML file, after the password modal div -->
+    <div class="modal-overlay" id="logoutModal">
+      <div class="modal-container logout-confirm">
+        <div class="modal-body logout-body">
+          <h2>Confirm Logout?</h2>
+          <p>Are you sure, you want to logout?</p>
+          <div class="logout-buttons">
+            <button class="btn-no">No</button>
+            <button class="btn-yes">Yes, Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Container Setup -->
+    <div class="dashboard-container">
+      <!-- Tab Bar -->
+      <div class="tab-bar">
+        <a href="videos.html" class="tab active">
+          <img src="assets/video-play.png" alt="Videos" />
+          Videos
+        </a>
+        <a href="resources.html" class="tab">
+          <img src="assets/star.png" alt="Resources" />
+          Resources
+        </a>
+        <a href="account.html" class="tab">
+          <img src="assets/profile-circle.png" alt="Account" />
+          Account
+        </a>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <!-- Course Grid -->
+        <div class="course-grid">
+          <!-- Course 1 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb1.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Getting Started With Music Theory</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <div class="progress-container">
+              <span class="progress-label">75%</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+              </div>
+              <a href="videos.html" class="button continue">Continue</a>
+            </div>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb2.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Ableton - Crash Course for Music Producer</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <a href="#" class="button enroll">Enroll Now</a>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb1.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Getting Started With Music Theory</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <a href="#" class="button enroll">Enroll Now</a>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb2.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Ableton - Crash Course for Music Producer</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <a href="#" class="button enroll">Enroll Now</a>
+          </div>
+
+          <!-- Course 5 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb1.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Getting Started With Music Theory</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <a href="#" class="button enroll">Enroll Now</a>
+          </div>
+
+          <!-- Course 6 -->
+          <div class="course-card">
+            <img
+              src="assets/thumb2.jpg"
+              alt="Course Thumbnail"
+              class="thumbnail"
+            />
+            <div class="course-info">
+              <h3>Ableton - Crash Course for Music Producer</h3>
+              <p>4 modules · 2 months · English</p>
+              <div class="profile">
+                <img src="assets/user1.jpg" alt="Instructor" />
+                <span>Sudhanshu Kumar + 2 others</span>
+              </div>
+            </div>
+            <a href="#" class="button enroll">Enroll Now</a>
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Enrolled Course Section -->
+          <div class="enrolled-course">
+            <div class="enrolled-course-card">
+              <div class="card-header">
+                <span class="card-label">Enrolled Course</span>
+              </div>
+              <div class="card-content">
+                <div class="course-flex-container">
+                  <div class="course-image">
+                    <img src="assets/progress.png" alt="Music Theory" />
+                  </div>
+                  <div class="course-info">
+                    <h3 class="course-title">
+                      Getting Started With Music Theory
+                    </h3>
+                    <p class="course-meta">4 modules · 2 months · English</p>
+
+                    <div class="mentors-section">
+                      <span class="mentors-label">Mentors</span>
+                      <div class="mentors-list">
+                        <div class="mentor-avatars">
+                          <img
+                            src="assets/user1.jpg"
+                            alt="Sudhanshu Kumar"
+                            class="mentor-avatar"
+                          />
+                        </div>
+                        <span class="mentors-text"
+                          >Sudhanshu Kumar · 2 others</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Join Community Section -->
+          <div class="join-community">
+            <h4>Join Whatsapp Community</h4>
+            <p>
+              Ask questions, clear doubts, and collaborate with other musicians
+            </p>
+            <div class="join-button">
+              <img src="assets/community.png" alt="WhatsApp" />
+              <a href="#" class="community-btn">Join Community</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript at the end of the body -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Navbar scroll effect variables
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const scrollThreshold = 10; // Minimum scroll amount before showing/hiding
+        
+        // Navbar scroll fade effect
+        window.addEventListener('scroll', function() {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Check if we've scrolled more than the threshold
+            if (Math.abs(lastScrollTop - currentScrollTop) <= scrollThreshold) {
+                return;
+            }
+            
+            // Check scroll direction
+            if (currentScrollTop > lastScrollTop && currentScrollTop > navbar.offsetHeight) {
+                // Scrolling DOWN - hide navbar
+                navbar.classList.remove('navbar--visible');
+                navbar.classList.add('navbar--hidden');
+            } else {
+                // Scrolling UP - show navbar
+                navbar.classList.remove('navbar--hidden');
+                navbar.classList.add('navbar--visible');
+            }
+            
+            lastScrollTop = currentScrollTop;
+        });
+        
+        // Notification popup functionality
+        const notificationIcon = document.querySelector('.notification');
+        const notificationPopup = document.getElementById('notificationPopup');
+        
+        // Toggle notification popup when clicking the notification icon
+        notificationIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            notificationPopup.style.display = notificationPopup.style.display === 'block' ? 'none' : 'block';
+            
+            // Hide profile popup if open
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close notification popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!notificationPopup.contains(e.target) && e.target !== notificationIcon) {
+                notificationPopup.style.display = 'none';
+            }
+        });
+        
+        // Mark all as read functionality
+        const markAllReadBtn = document.querySelector('.mark-all-read');
+        markAllReadBtn.addEventListener('click', function() {
+            // Remove notification badge
+            document.querySelector('.notification').style.setProperty('--after-content', '""');
+            // You can add more code here to mark notifications as read
+        });
+        
+        // Profile popup functionality
+        const profileIcon = document.querySelector('.profile');
+        const profilePopup = document.getElementById('profilePopup');
+        
+        // Toggle profile popup when clicking the profile icon
+        profileIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profilePopup.style.display = profilePopup.style.display === 'block' ? 'none' : 'block';
+            
+            // Hide notification popup if open
+            notificationPopup.style.display = 'none';
+        });
+        
+        // Close profile popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!profilePopup.contains(e.target) && e.target !== profileIcon) {
+                profilePopup.style.display = 'none';
+            }
+        });
+        
+        // Password change modal functionality
+        const passwordModal = document.getElementById('passwordModal');
+        const closeModalBtn = passwordModal.querySelector('.close-btn');
+        
+        // Show modal when settings option is clicked
+        const settingsOption = document.querySelector('.menu-item:nth-child(2)');
+        settingsOption.addEventListener('click', function() {
+            passwordModal.style.display = 'flex';
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close modal when close button is clicked
+        closeModalBtn.addEventListener('click', function() {
+            passwordModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the modal content
+        passwordModal.addEventListener('click', function(e) {
+            if (e.target === passwordModal) {
+                passwordModal.style.display = 'none';
+            }
+        });
+        
+        // Toggle password visibility
+        const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+        togglePasswordBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                } else {
+                    input.type = 'password';
+                }
+            });
+        });
+        
+        // Change Password button functionality
+        const changePasswordBtn = document.querySelector('.change-password-btn');
+        changePasswordBtn.addEventListener('click', function() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Basic validation
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match');
+                return;
+            }
+            
+            // Here you would normally send this data to your server
+            console.log('Password change requested');
+            
+            // Close the modal after submission
+            passwordModal.style.display = 'none';
+            
+            // Reset form
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        });
+        
+        // Logout confirmation modal functionality
+        const logoutModal = document.getElementById('logoutModal');
+        const btnNo = logoutModal.querySelector('.btn-no');
+        const btnYes = logoutModal.querySelector('.btn-yes');
+        
+        // Show logout confirmation when logout is clicked
+        const logoutOption = document.querySelector('.menu-item.logout');
+        logoutOption.addEventListener('click', function() {
+            logoutModal.style.display = 'flex';
+            profilePopup.style.display = 'none';
+        });
+        
+        // Close modal when "No" is clicked
+        btnNo.addEventListener('click', function() {
+            logoutModal.style.display = 'none';
+        });
+        
+        // Handle logout when "Yes, Logout" is clicked
+        btnYes.addEventListener('click', function() {
+            // Here you would normally handle the logout process
+            console.log('Logging out...');
+            // Redirect to logout page or clear session
+            // window.location.href = 'logout.php'; // Example redirect
+            
+            // Close the modal
+            logoutModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        logoutModal.addEventListener('click', function(e) {
+            if (e.target === logoutModal) {
+                logoutModal.style.display = 'none';
+            }
+        });
+        
+        // Add functionality for profile menu items
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Handle menu item clicks
+                const itemText = this.querySelector('span').textContent;
+                
+                if (itemText === 'My Profile') {
+                    console.log('Opening profile...');
+                    // Add profile navigation code here
+                    profilePopup.style.display = 'none';
+                }
+                // Other menu items are handled by specific event listeners above
+                
+            });
+        });
+                        //Hide or Show Search icon when clicked on mobile view
+                        const searchIcon = document.querySelector('.search-icon');
+                        const searchContainer = document.querySelector('.search-container');
+                        const searchInput = document.querySelector('.search-container input');
+                        const navRight = document.querySelector('.nav-right');
+                        
+                        // Toggle search field when icon is clicked
+                        searchIcon.addEventListener('click', function(e) {
+                            e.stopPropagation(); // Prevent click from propagating
+                            searchContainer.classList.toggle('active');
+                            
+                            // Toggle class on nav-right to hide other elements
+                            if (navRight) {
+                                navRight.classList.toggle('search-active');
+                            }
+                            
+                            if (searchContainer.classList.contains('active')) {
+                                searchInput.focus(); // Automatically focus the input when opened
+                            }
+                        });
+                        
+                        // Close search when clicking outside
+                        document.addEventListener('click', function(e) {
+                            if (!searchContainer.contains(e.target) && searchContainer.classList.contains('active')) {
+                                searchContainer.classList.remove('active');
+                                if (navRight) {
+                                    navRight.classList.remove('search-active');
+                                }
+                            }
+                        });
+                        
+                        // Prevent search from closing when clicking on the input
+                        searchInput.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                        
+                        // Close search on ESC key
+                        document.addEventListener('keydown', function(e) {
+                            if (e.key === 'Escape' && searchContainer.classList.contains('active')) {
+                                searchContainer.classList.remove('active');
+                                if (navRight) {
+                                    navRight.classList.remove('search-active');
+                                }
+                            }
+                        });        
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,904 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+body {
+    background: #F5F5F5;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    max-width: 1200px;
+    height: 60px;
+    background: linear-gradient(to right, #f7f2f2, #eee9e9);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin: 10px auto;
+    /* Add these properties for smooth transition */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Class to hide navbar when scrolling down */
+.navbar--hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Class to show navbar when scrolling up */
+.navbar--visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 20px;
+    width: auto;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-bottom: 2px solid #e68c8c;
+    padding: 5px;
+    max-width: 250px;
+    width: 100%;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    flex: 1;
+    padding-left: 5px;
+}
+
+.search-icon {
+    width: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 14px;
+    color: #333;
+}
+
+.notification {
+    width: 20px;
+    cursor: pointer;
+    position: relative;
+}
+/* Notification Popup */
+.notification-popup {
+    position: absolute;
+    top: 75px;
+    right: 167px;
+    width: 320px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    overflow: hidden;
+    display: none;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-header span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.mark-all-read {
+    color: #ff3b30;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: flex-start;
+}
+
+.notification-icon {
+    margin-top: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.notification-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.notification-icon.assignment {
+    background-color: #f0f0f0;
+}
+
+.notification-icon.test {
+    background-color: #e0e8ff;
+}
+
+.notification-icon.regularization {
+    background-color: #e6f7e9;
+}
+
+.notification-icon.user {
+    background-color: #fff0e0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content p {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.notification-time {
+    font-size: 11px;
+    color: #888;
+}
+
+/* For scrollbar customization */
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+/* Profile Icon */
+.profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Profile Popup */
+.profile-popup {
+    position: absolute;
+    top: 75px;
+    right: 167px;
+    width: 200px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    overflow: hidden;
+    display: none;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-id {
+    font-size: 12px;
+    color: #888;
+}
+
+.profile-menu {
+    padding: 5px 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #f5f5f5;
+}
+
+.menu-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.menu-item span {
+    font-size: 14px;
+    color: #333;
+}
+
+.logout span {
+    color: #ff3b30;
+}
+
+/* Add a pseudo-element for the green dot indicator next to the profile icon */
+.profile::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #4CD964;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    border: 2px solid white;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for blur effect */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px); /* This creates the blur effect */
+}
+
+/* Modal Container */
+.modal-container {
+    background-color: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ff3b30;
+    padding-bottom: 5px;
+}
+
+.password-input-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 0;
+    color: #888;
+}
+
+.toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+/* Change Password Button */
+.change-password-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.change-password-btn:hover {
+    background-color: #e6352b;
+}
+
+/* Add this to your CSS file */
+
+/* Logout confirmation modal */
+.logout-confirm {
+    padding: 20px;
+    text-align: center;
+    max-width: 350px;
+}
+
+.logout-body h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.logout-body p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-no {
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-no:hover {
+    background-color: #e9e9e9;
+}
+
+.btn-yes {
+    background-color: #ff3b30;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-yes:hover {
+    background-color: #e6352b;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tab Bar */
+.tab-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f9f8f8; /* Light gray background */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: none;
+    background: f5f5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333; /* Soft brownish text color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tab img {
+    width: 18px; /* Adjust icon size */
+    height: auto;
+    opacity: 0.7;
+}
+
+.tab.active {
+    background: #000;
+    color: #fff;
+}
+
+.tab.active img {
+    filter: brightness(0) invert(1); /* Makes icon white in active tab */
+}
+
+.tab:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+/* Filter Buttons */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background: #ff4d4d;
+    color: white;
+    border-color: #ff4d4d;
+}
+
+.filter-btn:hover:not(.active) {
+    background: #f5f5f5;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Resource Card */
+.resource-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-content {
+    display: flex;
+    padding: 15px;
+    gap: 12px;
+    align-items: center;
+}
+
+.card-thumbnail {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    flex-grow: 1;
+}
+
+.card-tag {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    color: #777;
+    font-size: 13px;
+}
+
+.separator {
+    margin: 0 4px;
+}
+
+.download-btn {
+    margin: 0 auto 15px;
+    width: calc(100% - 30px);
+    padding: 10px;
+    background: #f8f8f8;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    color: #333;
+}
+
+.download-btn:hover {
+    background: #eee;
+}
+
+/* Large screens */
+@media (max-width: 992px) {
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium screens / Tablets */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row;
+        height: 60px;
+        padding: 0 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-left, .nav-right {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Search */
+    .search-container {
+        max-width: 40px;
+        border-bottom: none;
+        transition: max-width 0.3s ease;
+    }
+
+    .search-container input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        transition: opacity 0.3s ease, width 0.3s ease;
+        font-size: 10px;
+    }
+
+    .search-container.active {
+        max-width: 200px;
+        border-bottom: 1px solid #e68c8c;
+    }
+
+    .search-container.active input {
+        display: block;
+        opacity: 1;
+        width: 160px;
+    }
+
+    .search-icon {
+        display: block;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    /* Hide elements when search is active */
+    .search-container.active~.time-container,
+    .search-container.active~.notification,
+    .search-container.active~.profile {
+        display: none;
+    }
+
+    /* If the elements are in a parent container */
+    .nav-right.search-active .time-container,
+    .nav-right.search-active .notification,
+    .nav-right.search-active .profile {
+        display: none;
+    }
+    
+    /* Time */
+    .time-container {
+        display: flex;
+        font-size: 12px;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+    
+    /* Dashboard layout */
+    .dashboard-container {
+        margin-top: 80px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    /* Vertical Tab Bar */
+    .tab-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 15px;
+        width: 180px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        height: fit-content;
+        border-bottom: none;
+        border-right: 2px solid #ddd;
+    }
+    
+    .tab {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 12px 15px;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        width: calc(100% - 195px);
+    }
+    
+    .course-grid, .sidebar {
+        width: 100%;
+    }
+    
+    /* Popups */
+    .notification-popup,
+    .profile-popup {
+        top: 65px;
+        right: 20px;
+        width: 90%;
+        max-width: 320px;
+    }
+}
+
+/* Small screens / Mobile */
+@media (max-width: 576px) {
+    /* Course grid */
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Dashboard layout for small screens */
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    /* Tab bar becomes top-positioned for small screens */
+    .tab-bar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+    }
+    
+    .main-content {
+        width: 100%;
+    }
+    
+    /* Button */
+    .continue {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Modal */
+    .modal-container {
+        width: 95%;
+    }
+    
+    /* Card adjustments */
+    .course-card {
+        padding: 10px;
+    }
+    
+    .course-card img.thumbnail {
+        height: 120px;
+    }
+    
+    /* Community section */
+    .join-community {
+        padding: 15px;
+    }
+    
+    .join-button img {
+        width: 23px;
+    }
+    
+    .community-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .search-container {
+        max-width: 30px;
+    }
+    
+    .time-container {
+        font-size: 11px;
+    }
+    
+    .nav-right {
+        gap: 12px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 0 10px;
+    }
+    
+    .time-container {
+        display: none;
+    }
+    
+    .nav-left {
+        gap: 10px;
+    }
+    
+    .logo {
+        height: 18px;
+    }
+    
+    .notification, 
+    .profile {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .tab {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+}
