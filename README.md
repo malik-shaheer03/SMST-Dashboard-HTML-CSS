@@ -39,6 +39,8 @@ The **SMST Dashboard** is a modern, media-style interface built with **HTML, CSS
 - 🌐 [Portfolio](https://shaheer-portfolio-omega.vercel.app)  
 - 💼 [LinkedIn](https://linkedin.com/in/malik-shaheer03)  
 - 🐙 [GitHub](https://github.com/malik-shaheer03)  
+- 📸 [Instagram](https://instagram.com/your_instagram_handle)  
+- 📧 [Email Me](mailto:youremail@example.com)  
 
 ---
 
